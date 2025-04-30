@@ -21,8 +21,7 @@ $stmt = $conn->prepare("
     IFNULL(s.size,'') AS size,
     IFNULL(s.availability,'') AS availability,
     IFNULL(s.sold,0) AS sold,
-    IFNULL(s.category,'') AS category,
-    IFNULL(s.colors,'') AS colors,
+    
     IFNULL(s.detail, '') AS detail  -- Fetching 'detail' from product_summary
   FROM products AS p
   LEFT JOIN product_summary AS s
@@ -167,8 +166,27 @@ $imagePath = "images/{$product['image']}";
               </div>
             </div>
 
-            <!-- Add to Cart and Buy Now Buttons -->
-            <p><a href="cart.php" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a href="cart.php" class="btn btn-primary py-3 px-5">Buy Now</a></p>
+<!-- Add to Cart Form -->
+<form action="add_cart.php" method="POST" style="display:inline;">
+  <input type="hidden" name="product_id" value="<?= $product['product_id']; ?>">
+  <input type="hidden" name="quantity"   value="1">
+  <button type="submit" style="background-color:rgb(190, 152, 0); color: black; border: none; border-radius: 50px; padding: 0.75rem 2rem; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.backgroundColor='rgb(190, 152, 0)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='rgb(190, 152, 0)'; this.style.transform='translateY(0)'">
+    Add to Cart
+  </button>
+</form>
+
+<!-- Buy Now Form -->
+<form action="add_cart.php" method="POST" style="display:inline;">
+  <input type="hidden" name="product_id" value="<?= $product['product_id']; ?>">
+  <input type="hidden" name="quantity"   value="1">
+  <button type="submit" style="background-color: #c2a942; color: black; border: none; border-radius: 50px; padding: 0.75rem 2rem; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease;" onmouseover="this.style.backgroundColor='#b59831'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#c2a942'; this.style.transform='translateY(0)'">
+    Buy Now
+  </button>
+</form>
+
+</form>
+
+
           </div>
         </div>
       </div>

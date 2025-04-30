@@ -1,20 +1,22 @@
 <?php
 session_start();
-require 'db_connect.php';  // sets up $conn
+require 'db_connect.php';
 
-// 1) Make sure user is logged in
 if (!isset($_SESSION['user_id'])) {
   header('Location: login.php');
   exit;
 }
+
 $user_id = (int)$_SESSION['user_id'];
 
-// 2) Make sure this is a POST with product_id
 if ($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['product_id'])) {
   $product_id = (int)$_POST['product_id'];
-  $quantity   = max(1, (int)($_POST['quantity'] ?? 1));
+  // use posted quantity (defaults to 1 if invalid)
+  $quantity   = isset($_POST['quantity']) && (int)$_POST['quantity'] > 0
+                ? (int)$_POST['quantity']
+                : 1;
 
-  // 3) If item already in cart, update qty; otherwise insert new
+  // Check existing
   $check = $conn->prepare("
     SELECT id, quantity 
     FROM add_cart 
@@ -25,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['product_id'])) {
   $res = $check->get_result();
 
   if ($res->num_rows) {
-    $row = $res->fetch_assoc();
-    $new_qty = $row['quantity'] + $quantity;
-    $upd = $conn->prepare("
+    $row    = $res->fetch_assoc();
+    $newQty = $row['quantity'] + $quantity;
+    $upd    = $conn->prepare("
       UPDATE add_cart 
       SET quantity = ?, added_on = NOW() 
       WHERE id = ?
     ");
-    $upd->bind_param("ii", $new_qty, $row['id']);
+    $upd->bind_param("ii", $newQty, $row['id']);
     $upd->execute();
     $upd->close();
   } else {
@@ -50,5 +52,5 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && !empty($_POST['product_id'])) {
   exit;
 }
 
-// if we get here, something was wrong
+// If we reach here, it's not a valid POST
 echo "Invalid request.";
