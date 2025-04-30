@@ -46,9 +46,13 @@
 	          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
-              <li class="nav-item cta cta-colored"><a href="login.php" class="nav-link"></span>Login</a></li>
-              <li class="nav-item cta cta-colored"><a href="register.php" class="nav-link"></span>Register</a></li>
-
+              <?php if(isset($_SESSION['user_id'])): ?>
+    <li class="nav-item cta cta-colored"><a href="logout.php" class="nav-link">Logout</a></li>
+    <li class="nav-item cta"><a href="#" class="nav-link">Welcome, <?php echo $_SESSION['user_name']; ?></a></li>
+<?php else: ?>
+    <li class="nav-item cta cta-colored"><a href="login.php" class="nav-link">Login</a></li>
+    <li class="nav-item cta cta-colored"><a href="register.php" class="nav-link">Register</a></li>
+<?php endif; ?>
 
 
 	        </ul>
