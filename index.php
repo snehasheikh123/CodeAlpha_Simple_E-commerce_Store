@@ -217,7 +217,7 @@ $conn->close();
 								<span class="subheading">Men's Shoes</span>
     						<h2>Men's Collection</h2>
     						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-    						<p><a href="#" class="btn btn-black px-3 py-2">Shop now</a></p>
+    						<p><a href="shop.php" class="btn btn-black px-3 py-2">Shop now</a></p>
     					</div>
     				</div>
 					</div>
@@ -230,7 +230,7 @@ $conn->close();
 	    								<span class="subheading">Women's Shoes</span>
 			    						<h2>Women's Collection</h2>
 			    						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-			    						<p><a href="#" class="btn btn-black px-3 py-2">Shop now</a></p>
+			    						<p><a href="shop.php" class="btn btn-black px-3 py-2">Shop now</a></p>
 			    					</div>
 	    						</div>
 	    					</div>
@@ -243,7 +243,7 @@ $conn->close();
 		    								<span class="subheading">Summer Sale</span>
 				    						<h2>Extra 50% Off</h2>
 				    						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-				    						<p><a href="#" class="btn btn-black px-3 py-2">Shop now</a></p>
+				    						<p><a href="shop.php" class="btn btn-black px-3 py-2">Shop now</a></p>
 				    					</div>
 		    						</div>
 	    						</div>
@@ -253,7 +253,7 @@ $conn->close();
 		    								<span class="subheading">Shoes</span>
 				    						<h2>Best Sellers</h2>
 				    						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-				    						<p><a href="#" class="btn btn-black px-3 py-2">Shop now</a></p>
+				    						<p><a href="shop.php" class="btn btn-black px-3 py-2">Shop now</a></p>
 				    					</div>
 		    						</div>
 	    						</div>
@@ -421,7 +421,7 @@ $conn->close();
       </div>
     </section>
 
-    <section class="ftco-gallery">
+    <!-- <section class="ftco-gallery">
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-8 heading-section text-center mb-4 ftco-animate">
@@ -476,7 +476,7 @@ $conn->close();
 					</div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
 	<?php include 'footer.php'; ?>
 	<?php include 'script.php'; ?>

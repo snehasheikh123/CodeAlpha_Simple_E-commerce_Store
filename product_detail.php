@@ -92,7 +92,7 @@ $imagePath = "images/{$product['image']}";
         <div class="row">
           <!-- Image -->
           <div class="col-lg-6 mb-5 ftco-animate">
-            <a href="<?php echo $imagePath; ?>" class="image-popup prod-img-bg">
+            <a href="<?php echo $imagePath; ?>"   class="image-popup prod-img-bg">
               <img src="<?php echo $imagePath; ?>" class="img-fluid" alt="Product Image">
             </a>
           </div>
@@ -176,7 +176,8 @@ $imagePath = "images/{$product['image']}";
 
 
 
-    	<div class="row mt-5">
+    	<div class="row mt-5" >
+			
           <div class="col-md-12 nav-link-wrap">
             <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link ftco-animate active mr-lg-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Description</a>
